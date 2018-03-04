@@ -38,7 +38,13 @@ public class StructureTest {
                                     "Microsoft", 16, 3, 1990, true);
         System.out.println(e1.toString());
         assertTrue(e1.getIsAlive());
-        assertTrue(e1.getIsOldEnoughToWork(2,3,2018));
+        assertTrue(e1.getIsOldEnoughToWork(3,3,2018));
+
+        Employee e2 = new Employee("Ars","Monkey","Poop-Scooper",
+                                    "San Diego",16,3,2010,true);
+        assertTrue(!e2.getIsOldEnoughToWork(3,3,2018));
+
+        System.out.println("Hey Wolf why isn't it running from the top down??????? Peace bro.");
     }
     /**
      * Check Employee Equality
@@ -57,7 +63,12 @@ public class StructureTest {
         // modify employee e2 (eg. by making her/him join the other company
         e2.setOrgOneWorksFor("Google");
         assertNotEquals(e1, e2);
+        boolean x = e1.equals(null);
+        assertTrue(!x);
+        boolean y = e1.equals("HOLY HELL!!!!!");
+        assertTrue(!y);
 
+        System.out.println("Employee Equality passed");
     }
 
     /**
@@ -74,7 +85,11 @@ public class StructureTest {
         // modify company c2, i.e. change its name or create another company with a different name ..
         c2.setOrgName("Google");
         assertNotEquals(c1, c2);
-
+        boolean x = c1.equals(null);
+        assertTrue(!x);
+        boolean y = c1.equals("F%#K MY BACK HURTS!");
+        assertTrue(!y);
+        System.out.println("Company Equality Passed");
     }
 
     @Test
