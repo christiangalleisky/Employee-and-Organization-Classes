@@ -65,13 +65,10 @@ public class StructureTest {
      */
     @Test
     public void companyEq() {
-
-        Employee e1 = new Employee("Chris", "Galleisky", "Programmer",
-                                    "Microsoft", 16, 3, 1990, true);
         // Create company c1,
         // Create company employee c2 that matches the specific criteria for equality
-        Employee.Organization c1 = e1.new Organization("Microsoft",10000);
-        Employee.Organization c2 = e1.new Organization("Microsoft",10000);
+        Organization c1 = new Organization("Microsoft",10000);
+        Organization c2 = new Organization("Microsoft",10000);
         assertTrue(c1.equals(c2));
 
         // modify company c2, i.e. change its name or create another company with a different name ..
@@ -83,9 +80,7 @@ public class StructureTest {
     @Test
     public void companyComplete() {
         // check that a companies' attribute are complete and make sense.
-        Employee e1 = new Employee("Chris", "Galleisky", "Programmer",
-                                    "Microsoft", 16, 3, 1990, true);
-        Employee.Organization c1 = e1.new Organization("Microsoft",10000);
+        Organization c1 = new Organization("Microsoft",10000);
         System.out.println(c1.toString());
     }
 }

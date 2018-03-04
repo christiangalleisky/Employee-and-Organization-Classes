@@ -107,66 +107,20 @@ public class Employee {
 
     @Override
     public boolean equals(Object o){
-        Employee e = (Employee) o;
+
+        if(o instanceof Employee)
+        {Employee e = (Employee) o;
+
         if(this.firstName.equals(e.getFirstName()) && this.lastName.equals(e.getLastName()) &&
                 this.getJobTitle().equals(e.getJobTitle()) && this.orgOneWorksFor.equals(e.orgOneWorksFor)
                 && this.bDay==e.bDay && this.bMonth==e.bMonth && this.bYear==e.bYear && this.isAlive==e.isAlive)
-        {return true;}
-        else return false;
+        {return true;}}
+        return false;
     }
 
     @Override
     public String toString(){
         return String.format(this.firstName+" "+this.lastName+" is a(n) "+this.jobTitle+" @ "+this.orgOneWorksFor
-                                +"\nborn on: "+this.bMonth+"\\"+this.bDay+"\\"+this.bYear);
-    }
-
-
-
-    public class Organization {
-
-        //instance variables
-        private String orgName;
-        private int numberOfEmployees;
-
-        public Organization(String orgName, int numberOfEmployees){
-            this.orgName=orgName;
-            this.numberOfEmployees=numberOfEmployees;
-        }
-
-        public Organization(){
-            this.orgName=null;
-            this.numberOfEmployees=0;
-        }
-
-        public String getOrgName() {
-            return orgName;
-        }
-
-        public void setOrgName(String orgName) {
-            this.orgName = orgName;
-        }
-
-        public int getNumberOfEmployees() {
-            return numberOfEmployees;
-        }
-
-        public void setNumberOfEmployees(int numberOfEmployees) {
-            this.numberOfEmployees = numberOfEmployees;
-        }
-
-        @Override
-        public boolean equals(Object o){
-            Employee.Organization org1= (Employee.Organization) o;
-            if(this.orgName.equals(org1.getOrgName()) && this.numberOfEmployees==org1.getNumberOfEmployees()){
-                return true;
-            }
-            else return false;
-        }
-
-        @Override
-        public String toString(){
-            return String.format("Company: "+orgName+"\n"+"Number of Employees: "+numberOfEmployees);
-        }
+                                +"\nborn on: "+this.bMonth+"/"+this.bDay+"/"+this.bYear);
     }
 }
